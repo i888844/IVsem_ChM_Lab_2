@@ -127,8 +127,8 @@
 
 using namespace std;
 
-#define START 0.0
-#define END 1.0
+#define START 1.0
+#define END 5.0
 
 long double factorial(int n)
 {
@@ -164,8 +164,8 @@ long double interpolateSecond(int n, long double x, long double result[][12])
 
     for (int k = 2; k <= n - 1; k++)
     {
-        term *= (q - k + 1) / k;
-        value += term * dividedDifference(10, k, result);
+        term *= (q - k + 1) / factorial(k);
+        value += term * dividedDifference(n, k, result);
     }
 
     return value;
@@ -185,10 +185,10 @@ int main()
     }
 
     int i = 0;
-    for (long double x = START; x < END + START / 10; x += 0.1)
+    for (long double x = START; x < END + START / 10; x += 0.4)
     {
         result[i][0] = x;
-        result[i][1] = tanl(x);
+        result[i][1] = atanl(1.0 / 2.0 * x);
         i++;
     }
 
@@ -204,18 +204,18 @@ int main()
         m--;
     }
 
-    printf("  x       y         dy(x)   d^2y(x)  d^3y(x)  d^4y(x)  d^5y(x)  d^6y(x)  d^7y(x)  d^8y(x)  d^9(x)  d^10y(x)\n");
+    printf("   x       y         dy(x)    d^2y(x)   d^3y(x)   d^4y(x)   d^5y(x)   d^6y(x)   d^7y(x)   d^8y(x)   d^9(x)   d^10y(x)\n");
     for (i = 0; i < 11; i++)
     {
         for (j = 0; j < 12; j++)
         {
             if (result[i][j] == 3990355.0)
             {
-                printf("    -    ");
+                printf("     -    ");
             }
             else
             {
-                printf("%8.6lf ", result[i][j]);
+                printf("%9.6lf ", result[i][j]);
             }
         }
         cout << "\n";
