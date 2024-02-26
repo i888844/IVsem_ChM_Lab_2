@@ -221,27 +221,131 @@ int main()
         cout << "\n";
     }
 
-    cout << "\nВычисленные по первой интерполяционной формуле Ньютона:\n";
-    cout << "x = x0 - 0.2h = " << interpolateFirst(n, result[0][0] - 0.2 * 0.1, result) << "\n";
-    cout << "x = x0 + 0.2h = " << interpolateFirst(n, result[0][0] + 0.2 * 0.1, result) << "\n";
-    cout << "x = x0 - 0.5h = " << interpolateFirst(n, result[0][0] - 0.5 * 0.1, result) << "\n";
-    cout << "x = x0 + 0.5h = " << interpolateFirst(n, result[0][0] + 0.5 * 0.1, result) << "\n";
-    cout << "x = x10 - 0.25h = " << interpolateFirst(n, result[10][0] - 0.25 * 0.1, result) << "\n";
-    cout << "x = x10 + 0.25h = " << interpolateFirst(n, result[10][0] + 0.25 * 0.1, result) << "\n";
-    cout << "x = x10 - 0.5h = " << interpolateFirst(n, result[10][0] - 0.5 * 0.1, result) << "\n";
-    cout << "x = x10 + 0.5h = " << interpolateFirst(n, result[10][0] + 0.5 * 0.1, result) << "\n";
+    if (result[0][0] - 0.2 * 0.1 < 2.5)
+    {
+        cout << "\nВычисленные по первой интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[0][0] - 0.2 * 0.1 << "\n";
+        cout << "x = x0 - 0.2h = " << interpolateFirst(n, result[0][0] - 0.2 * 0.1, result) << "\n";
+    }
+    else
+    {
+        cout << "\nВычисленные по второй интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[0][0] - 0.2 * 0.1 << "\n";
+        cout << "x = x0 - 0.2h = " << interpolateSecond(n, result[0][0] - 0.2 * 0.1, result) << "\n";
+    }
 
-    cout << "\nВычисленные по второй интерполяционной формуле Ньютона:\n";
-    cout << "x = x0 - 0.2h = " << interpolateSecond(n, result[0][0] - 0.2 * 0.1, result) << "\n";
-    cout << "x = x0 + 0.2h = " << interpolateSecond(n, result[0][0] + 0.2 * 0.1, result) << "\n";
-    cout << "x = x0 - 0.5h = " << interpolateSecond(n, result[0][0] - 0.5 * 0.1, result) << "\n";
-    cout << "x = x0 + 0.5h = " << interpolateSecond(n, result[0][0] + 0.5 * 0.1, result) << "\n";
-    cout << "x = x10 - 0.25h = " << interpolateSecond(n, result[10][0] - 0.25 * 0.1, result) << "\n";
-    cout << "x = x10 + 0.25h = " << interpolateSecond(n, result[10][0] + 0.25 * 0.1, result) << "\n";
-    cout << "x = x10 - 0.5h = " << interpolateSecond(n, result[10][0] - 0.5 * 0.1, result) << "\n";
-    cout << "x = x10 + 0.5h = " << interpolateSecond(n, result[10][0] + 0.5 * 0.1, result) << "\n";
+    if (result[0][0] + 0.2 * 0.1 < 2.5)
+    {
+        cout << "\nВычисленные по первой интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[0][0] + 0.2 * 0.1 << "\n";
+        cout << "x = x0 + 0.2h = " << interpolateFirst(n, result[0][0] + 0.2 * 0.1, result) << "\n";
+    }
+    else
+    {
+        cout << "\nВычисленные по второй интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[0][0] + 0.2 * 0.1 << "\n";
+        cout << "x = x0 + 0.2h = " << interpolateSecond(n, result[0][0] + 0.2 * 0.1, result) << "\n";
+    }
 
-    cout << "\nЭмперическая формула для tan(x):\n";
+    if (result[0][0] - 0.5 * 0.1 < 2.5)
+    {
+        cout << "\nВычисленные по первой интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[0][0] - 0.5 * 0.1 << "\n";
+        cout << "x = x0 - 0.5h = " << interpolateFirst(n, result[0][0] - 0.5 * 0.1, result) << "\n";
+    }
+    else
+    {
+        cout << "\nВычисленные по второй интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[0][0] - 0.5 * 0.1 << "\n";
+        cout << "x = x0 - 0.5h = " << interpolateSecond(n, result[0][0] - 0.5 * 0.1, result) << "\n";
+    }
+
+    if (result[0][0] + 0.5 * 0.1 < 2.5)
+    {
+        cout << "\nВычисленные по первой интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[0][0] + 0.5 * 0.1 << "\n";
+        cout << "x = x0 + 0.5h = " << interpolateFirst(n, result[0][0] + 0.5 * 0.1, result) << "\n";
+    }
+    else
+    {
+        cout << "\nВычисленные по второй интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[0][0] + 0.5 * 0.1 << "\n";
+        cout << "x = x0 + 0.5h = " << interpolateSecond(n, result[0][0] + 0.5 * 0.1, result) << "\n";
+    }
+
+    if (result[10][0] - 0.25 * 0.1 < 2.5)
+    {
+        cout << "\nВычисленные по первой интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[10][0] - 0.25 * 0.1 << "\n";
+        cout << "x = x10 - 0.25h = " << interpolateFirst(n, result[10][0] - 0.25 * 0.1, result) << "\n";
+    }
+    else
+    {
+        cout << "\nВычисленные по второй интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[10][0] - 0.25 * 0.1 << "\n";
+        cout << "x = x10 - 0.25h = " << interpolateSecond(n, result[10][0] - 0.25 * 0.1, result) << "\n";
+    }
+
+    if (result[10][0] + 0.25 * 0.1 < 2.5)
+    {
+        cout << "\nВычисленные по первой интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[10][0] + 0.25 * 0.1 << "\n";
+        cout << "x = x10 + 0.25h = " << interpolateFirst(n, result[10][0] + 0.25 * 0.1, result) << "\n";
+    }
+    else
+    {
+        cout << "\nВычисленные по второй интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[10][0] + 0.25 * 0.1 << "\n";
+        cout << "x = x10 + 0.25h = " << interpolateSecond(n, result[10][0] + 0.25 * 0.1, result) << "\n";
+    }
+
+    if (result[10][0] - 0.5 * 0.1 < 2.5)
+    {
+        cout << "\nВычисленные по первой интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[10][0] - 0.5 * 0.1 << "\n";
+        cout << "x = x10 - 0.5h = " << interpolateFirst(n, result[10][0] - 0.5 * 0.1, result) << "\n";
+    }
+    else
+    {
+        cout << "\nВычисленные по второй интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[10][0] - 0.5 * 0.1 << "\n";
+        cout << "x = x10 - 0.5h = " << interpolateSecond(n, result[10][0] - 0.5 * 0.1, result) << "\n";
+    }
+
+    if (result[10][0] + 0.5 * 0.1 < 2.5)
+    {
+        cout << "\nВычисленные по первой интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[10][0] + 0.5 * 0.1 << "\n";
+        cout << "x = x10 + 0.5h = " << interpolateFirst(n, result[10][0] + 0.5 * 0.1, result) << "\n";
+    }
+    else
+    {
+        cout << "\nВычисленные по второй интерполяционной формуле Ньютона:";
+        cout << "\nx = " << result[10][0] + 0.5 * 0.1 << "\n";
+        cout << "x = x10 + 0.5h = " << interpolateSecond(n, result[10][0] + 0.5 * 0.1, result) << "\n";
+    }
+
+    //cout << "\nВычисленные по первой интерполяционной формуле Ньютона:\n";
+    //cout << "x = x0 - 0.2h = " << interpolateFirst(n, result[0][0] - 0.2 * 0.1, result) << "\n";
+    //cout << "x = x0 + 0.2h = " << interpolateFirst(n, result[0][0] + 0.2 * 0.1, result) << "\n";
+    //cout << "x = x0 - 0.5h = " << interpolateFirst(n, result[0][0] - 0.5 * 0.1, result) << "\n";
+    //cout << "x = x0 + 0.5h = " << interpolateFirst(n, result[0][0] + 0.5 * 0.1, result) << "\n";
+    //cout << "x = x10 - 0.25h = " << interpolateFirst(n, result[10][0] - 0.25 * 0.1, result) << "\n";
+    //cout << "x = x10 + 0.25h = " << interpolateFirst(n, result[10][0] + 0.25 * 0.1, result) << "\n";
+    //cout << "x = x10 - 0.5h = " << interpolateFirst(n, result[10][0] - 0.5 * 0.1, result) << "\n";
+    //cout << "x = x10 + 0.5h = " << interpolateFirst(n, result[10][0] + 0.5 * 0.1, result) << "\n";
+
+    //cout << "\nВычисленные по второй интерполяционной формуле Ньютона:\n";
+    //cout << "x = x0 - 0.2h = " << interpolateSecond(n, result[0][0] - 0.2 * 0.1, result) << "\n";
+    //cout << "x = x0 + 0.2h = " << interpolateSecond(n, result[0][0] + 0.2 * 0.1, result) << "\n";
+    //cout << "x = x0 - 0.5h = " << interpolateSecond(n, result[0][0] - 0.5 * 0.1, result) << "\n";
+    //cout << "x = x0 + 0.5h = " << interpolateSecond(n, result[0][0] + 0.5 * 0.1, result) << "\n";
+    //cout << "x = x10 - 0.25h = " << interpolateSecond(n, result[10][0] - 0.25 * 0.1, result) << "\n";
+    //cout << "x = x10 + 0.25h = " << interpolateSecond(n, result[10][0] + 0.25 * 0.1, result) << "\n";
+    //cout << "x = x10 - 0.5h = " << interpolateSecond(n, result[10][0] - 0.5 * 0.1, result) << "\n";
+    //cout << "x = x10 + 0.5h = " << interpolateSecond(n, result[10][0] + 0.5 * 0.1, result) << "\n";
+
+    cout << "\nЭмперическая формула для arctan(1 / 2x):\n";
     cout << "P(x) = " << result[0][1];
     for (int k = 1; k < n; k++)
     {
